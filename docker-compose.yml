@@ -17,9 +17,9 @@ services:
         ipv4_address: 192.168.95.20
 
     volumes:
-      - /home/bts/.docker/test-vault-conteneur/data:/vault/file
+      - /home/bts/Bureau/COSMOS Project/Cosmos/Vénus/data:/vault/file
       - /home/bts/Bureau/COSMOS Project/Cosmos/Vénus/config:/vault/config
-    command: vault server -config=/vault/config/vault.hcl
+    command: vault server -config=/Vénus/config/vault.hcl
 
 networks:
   cosmos:
