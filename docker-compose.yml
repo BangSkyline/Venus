@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  vault:
+    image: venus:V2
+    container_name: Vault
+    restart: unless-stopped
+    environment:
+      VAULT_ADDR: 'http://0.0.0.0:8202'
+      VAULT_API_ADDR: 'http://192.168.95.20:8202'
+    ports:
+      - "8202:8202"  # HTTP API/UI
+    cap_add:
+      - IPC_LOCK
+    networks:
+      cosmos:
+        ipv4_address: 192.168.95.20
+
+    volumes:
+      - /home/bts/.docker/test-vault-conteneur/data:/vault/file
+      - /home/bts/.docker/test-vault-conteneur/config:/vault/config
+    command: vault server -config=/vault/config/vault.hcl
+
+networks:
+  cosmos:
+    external: true
