@@ -21,7 +21,7 @@ services:
     volumes:
       - ./data:/vault/file:rw
       - ./config:/vault/config:rw
-    command: vault server -config=/Vénus/config/vault.hcl
+    command: vault server -config=/config/vault.hcl
 
 networks:
   cosmos:
