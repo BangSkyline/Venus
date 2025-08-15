@@ -19,8 +19,7 @@ services:
       cosmos:
         ipv4_address: 192.168.95.20
     volumes:
-      - ./data:/vault/file:rw
-      - ./config:/vault/config:rw
+      - .//vault/file:rw
     command: vault server -config=/vault/config/vault.hcl
 
 networks:
