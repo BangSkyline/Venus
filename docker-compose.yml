@@ -15,12 +15,11 @@ services:
       - "8202:8202"  # HTTP API/UI
     cap_add:
       - IPC_LOCK
-    volumes:
-      vault-
     networks:
       cosmos:
         ipv4_address: 192.168.95.20
     volumes:
+      vault-
       - vault-/vault/file
     command: vault server -config=/vault/config/vault.hcl
 
