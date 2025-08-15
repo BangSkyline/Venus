@@ -1,8 +1,11 @@
-version: '3.9'
+version: '3.8'
 
 services:
   vault:
-    image: venus:V2
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: venus:V2  # Nom de l'image finale
     container_name: Vault
     restart: unless-stopped
     environment:
@@ -15,10 +18,9 @@ services:
     networks:
       cosmos:
         ipv4_address: 192.168.95.20
-
     volumes:
-      - /home/bts/Bureau/COSMOS Project/Cosmos/Vénus/data:/vault/file
-      - /home/bts/Bureau/COSMOS Project/Cosmos/Vénus/config:/vault/config
+      - ./data:/vault/file:ro
+      - ./config:/vault/config:rw
     command: vault server -config=/Vénus/config/vault.hcl
 
 networks:
