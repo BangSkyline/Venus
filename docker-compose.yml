@@ -18,7 +18,7 @@ services:
 
     volumes:
       - /home/bts/.docker/test-vault-conteneur/data:/vault/file
-      - /home/bts/.docker/test-vault-conteneur/config:/vault/config
+      - /home/bts/Bureau/COSMOS Project/Cosmos/Vénus/config:/vault/config
     command: vault server -config=/vault/config/vault.hcl
 
 networks:
