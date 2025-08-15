@@ -2,16 +2,13 @@
 FROM hashicorp/vault:1.16
 
 # Crée les répertoires nécessaires
-RUN mkdir -p /Vénus/config /Vénus/file /Vénus/CERTIFS
+RUN mkdir -p /vault/config /vault/file /vault/logs
 
 # Copie les fichiers de configuration
-COPY config/* /Vault/config/
+COPY vault-config/* /vault/config/
 
 # Copie les données persistantes
-COPY data/* /Vénus/data/
-
-# Copie les certificats
-COPY CERTIFS/* /Vénus/CERTIFS/
+COPY vault-data/* /vault/file/
 
 # Définit le point d'entrée par défaut
-CMD ["vault", "server", "-config=/Vénus/config/vault.hcl"]
+CMD ["vault", "server", "-config=/vault/config/vault.hcl"]
