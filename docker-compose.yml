@@ -1,5 +1,7 @@
 version: '3.8'
 
+volumes:
+  vault-data: {}
 services:
   vault:
     build:
@@ -19,8 +21,7 @@ services:
       cosmos:
         ipv4_address: 192.168.95.20
     volumes:
-      vault-
-      - vault-/vault/file
+      - vault-data:/vault/file
     command: vault server -config=/vault/config/vault.hcl
 
 networks:
